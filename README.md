@@ -1,61 +1,11 @@
-# 🚀 Getting started with Strapi
+Ticu Catalin Ciprian
+- Am facut pagina Acasa, am folosit gradient, Navbar-ul, Footer-ul, am adaugat informatii esentiale pentru prima pagina, m-am ocupat de conectarea cu github cu Strapi, am trimis invitatia catre fiecare membru, am conectat site-ul la netlify
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+Zirbo Raluca
+- Am facut sectiunea despre noi unde am scris despre echipa, care sunt membrii echipei si ce facem.
 
-### `develop`
+Domasnean Vichiente Valentin : 
+- Am realizat formularul de contact, panoul informational , sectiunea locatia noastra si bara de copyright si credite. Ca si inspiratie am folosit pagina oficiala Strapi si Linear.
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
-
-```
-npm run develop
-# or
-yarn develop
-```
-
-### `start`
-
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
-
-```
-npm run start
-# or
-yarn start
-```
-
-### `build`
-
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
-
-```
-npm run build
-# or
-yarn build
-```
-
-## ⚙️ Deployment
-
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
-
-```
-yarn strapi deploy
-```
-
-## 📚 Learn more
-
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
-
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
-
-## ✨ Community
-
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
-
----
-
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+Voicu Delia Gabriela:
+- Am realizat modul de dark mode, m-am ocupat și de pagina de portofoliu în care am pus în partea de sus informațiile generale, am înșirat mai multe exemple de aplicații, apoi am explicat modul în care lucrăm si cum funcționează fiecare etapă. 
