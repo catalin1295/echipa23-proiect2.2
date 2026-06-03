@@ -17,22 +17,30 @@ export default function Blog() {
   const activeCategory        = searchParams.get('category') || 'all';
 
   useEffect(() => {
-    Promise.all([getArticles(), getCategories()]).then(([arts, cats]) => {
-      setArticles(arts);
-      setCategories(cats);
+    Promise.all([getArticles(), getCategories()]).then(([arts], cats) => {
+      // Ne asigurăm că primim array-uri valide din API
+      setArticles(Array.isArray(arts) ? arts : []);
+      setCategories(Array.isArray(cats) ? cats : []);
+      setLoading(false);
+    }).catch(err => {
+      console.error("Eroare la preluarea datelor:", err);
       setLoading(false);
     });
   }, []);
 
-  // Filtrare client-side
+  // Filtrare client-side securizată cu ?.
   const filtered = useMemo(() => {
     return articles.filter(a => {
+      if (!a?.attributes) return false; // Ignoră articolele malformate
+
       const catSlug  = a.attributes.category?.data?.attributes?.slug;
       const matchCat = activeCategory === 'all' || catSlug === activeCategory;
+      
       const q        = search.toLowerCase();
-      const matchQ   = !q
-        || a.attributes.title.toLowerCase().includes(q)
-        || (a.attributes.excerpt || '').toLowerCase().includes(q);
+      const title    = a.attributes.title?.toLowerCase() || '';
+      const excerpt  = (a.attributes.excerpt || '').toLowerCase();
+      
+      const matchQ   = !q || title.includes(q) || excerpt.includes(q);
       return matchCat && matchQ;
     });
   }, [articles, activeCategory, search]);
@@ -98,19 +106,27 @@ export default function Blog() {
             >
               Toate
             </button>
-            {categories.map(cat => (
-              <button
-                key={cat.id}
-                onClick={() => setCategory(cat.attributes.slug)}
-                className={`px-4 py-2 rounded-xl text-sm font-semibold transition-colors ${
-                  activeCategory === cat.attributes.slug
-                    ? 'bg-indigo-600 text-white shadow-sm'
-                    : 'bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-700'
-                }`}
-              >
-                {cat.attributes.name}
-              </button>
-            ))}
+            {categories.map(cat => {
+              // Verificăm dacă structura categoriei este completă
+              const slug = cat?.attributes?.slug;
+              const name = cat?.attributes?.name;
+              
+              if (!slug || !name) return null; // Prevenim crăparea dacă datele sunt incomplete
+
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => setCategory(slug)}
+                  className={`px-4 py-2 rounded-xl text-sm font-semibold transition-colors ${
+                    activeCategory === slug
+                      ? 'bg-indigo-600 text-white shadow-sm'
+                      : 'bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-700'
+                  }`}
+                >
+                  {name}
+                </button>
+              );
+            })}
           </div>
         </div>
       </section>
