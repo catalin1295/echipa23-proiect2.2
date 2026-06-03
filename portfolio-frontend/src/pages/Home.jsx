@@ -55,15 +55,15 @@ export default function Home() {
               bg-white/10 border border-white/20 rounded-full backdrop-blur-sm
               text-white/80 text-sm font-medium animate-fade-in">
               <span className="w-2 h-2 bg-emerald-400 rounded-full" />
-              Student în Informatică Aplicată
+              Informatică Economica
             </div>
 
             {/* Hero heading */}
             <h1 className="font-heading font-black text-white leading-tight mb-6
               text-4xl sm:text-5xl md:text-6xl lg:text-7xl animate-fade-up">
-              Bună, eu sunt{' '}
+              NR{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-400">
-                Prenume Nume
+                Echipa 23
               </span>
             </h1>
 
